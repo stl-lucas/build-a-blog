@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <ul>
-      <li>
-        <form action="/newpost" method="post">
-			<label>
-				Title for your new blog:
-				<input type="text" name="post-title" value="{{ post.title }}" />
-			</label>
-			<label>
-				Your new blog:
-				<textarea name="post-body" value="{{ post.body }}" />
-			</label>
-			<input type="submit" value="Add Entry"/>
-        </form>
-      </li>
-  </ul>
+	<form action="/newpost" method="post">
+		<div class="row">
+			<p>
+				<label for="post-title">Title for your new blog:</label><br/>
+				<input type="text" name="post-title" id="post-title" value="{{ title }}"/>
+			</p>
+			{% if error1 %}
+				<p class='error'>{{ error1 }}</p>
+			{% endif %}
+		</div>
+		<div class="row">
+			<label for="post-body">Your new blog:</label><br/>
+			<textarea name="post-body" id="post-body">{{ body }}</textarea>
+			{% if error2 %}
+				<p class='error'>{{ error2 }}</p>
+			{% endif %}
+		</div>
+		<div class="row">
+			<p><input type="submit" value="Add Entry"/></p>
+		</div>
+	</form>
 
-{% if error %}
-  <p class='error'>{{ error }}</p>
-{% endif %}
 {% endblock %}

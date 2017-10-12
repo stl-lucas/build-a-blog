@@ -1,23 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <ul>
-      <li>
-        <form action="/newpost" method="post">
-			<label>
-				Title for your new blog:
-				<input type="text" name="post-title" value="{{ post.title }}" />
-			</label>
-			<label>
-				Your new blog:
-				<textarea name="post-body" value="{{ post.body }}" />
-			</label>
-			<input type="submit" value="Add Entry"/>
-        </form>
-      </li>
-  </ul>
 
-{% if error %}
-  <p class='error'>{{ error }}</p>
+{% if not post %}
+	<p class='error'>Sorry, we couldn't find the post you were looking for.</p>
+	{% else %}
+	
+		<div>
+			<h2>{{ post.title }}</h2>
+			<p>{{ post.body }}</p>
+		</div>
+		
 {% endif %}
 {% endblock %}
