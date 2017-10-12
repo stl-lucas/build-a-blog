@@ -59,8 +59,8 @@ def newpost():
             blog = Blog(new_title, new_body)
             db.session.add(blog)
             db.session.commit()
-		
-            return redirect('/post', id=Blog.id)
+            id = str(blog.id)
+            return redirect('/post?id='+ id)
 
 @app.route("/")
 def index():
