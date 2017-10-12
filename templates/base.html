@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Build A Blog</title>
+        <style type="text/css">
+            .error {
+                color: red;
+            }
+			.success {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div style='float: left'>
+            <a href="/">Main Blog Page</a> | <a href="/newpost">Add a Blog Entry</a>
+        </div>
+		<div style='margin: auto'>
+			<h2>{{ heading }}</h2>
+		</div>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
