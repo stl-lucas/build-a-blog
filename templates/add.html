@@ -1,25 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<form action="/newpost" method="post">
-		<div class="row">
-			<p>
-				<label for="post-title">Title for your new blog:</label><br/>
-				<input type="text" name="post-title" id="post-title" value="{{ title }}"/>
-			</p>
+	<form class="form-horizontal" action="/newpost" method="post">
+		<div class="form-group">
+				<label class="col-md-2 control-label" for="post-title">Title for your new blog:</label>
+				<div class="col-md-10">
+					<input class="form-control" type="text" name="post-title" id="post-title" value="{{ title }}" style="border-left: 5px solid #0075ba;"/>
+				</div>
 			{% if error1 %}
 				<p class='error'>{{ error1 }}</p>
 			{% endif %}
 		</div>
-		<div class="row">
-			<label for="post-body">Your new blog:</label><br/>
-			<textarea name="post-body" id="post-body">{{ body }}</textarea>
+		<div class="form-group">
+			<label class="col-md-2 control-label" for="post-body">Your new blog:</label>
+			<div class="col-md-10">
+				<textarea class="form-control" name="post-body" id="post-body" style="border-left: 5px solid #0075ba;">{{ body }}</textarea>
+			</div>
 			{% if error2 %}
 				<p class='error'>{{ error2 }}</p>
 			{% endif %}
 		</div>
-		<div class="row">
-			<p><input type="submit" value="Add Entry"/></p>
+		<div class="form-group">
+			<p><input class="btn btn-primary btn-lg" type="submit" value="Add Entry"/></p>
 		</div>
 	</form>
 

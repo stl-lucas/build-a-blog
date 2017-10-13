@@ -18,10 +18,6 @@ class Blog(db.Model):
         self.title = title
         self.body = body
 
-def get_blog_list():
-    return Blog.query.filter_by(id=1).first()
-
-
 @app.route("/post")
 def post():
     id = request.args['id']
