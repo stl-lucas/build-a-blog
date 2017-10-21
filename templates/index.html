@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-{% if not post %}
-	<p class='error'>Sorry, we couldn't find the post you were looking for.</p>
+
+{% if authors|length == 0 %}
+<p class='error'>There are no authors registred yet.</p>
 	{% else %}
-	
-		<div>
-			<h2>{{ post.title }}</h2>
-			<p>{{ post.body }}</p>
-		</div>
-		
+
+        <h2>List of Authors:</h2>
+		{% for author in authors %}
+        <div>
+            <a href='/blog?user={{ author.id }}'>{{ author.email }}</a>
+        </div>
+		{% endfor %}
+
 {% endif %}
+
 {% endblock %}

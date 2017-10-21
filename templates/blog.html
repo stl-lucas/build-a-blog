@@ -7,7 +7,8 @@
 	
 		{% for post in posts %}
 		<div>
-			<a href='post?id={{ post.id }}'>{{ post.title }}</a>
+			<h1><a href='post?id={{ post.id }}'>{{ post.title }}</a></h1>
+            <p>By: <a href='/blog?user={{ post.owner.id }}'>{{ post.owner.email }}</a></p>
 			<p>{{ post.body }}</p>
 			<hr/>
 		</div>
