@@ -1,6 +1,6 @@
-from flask import Flask, request, redirect, render_template, session, flash
+from flask import Flask, request, redirect, render_template, session, flash 
 from flask_sqlalchemy import SQLAlchemy
-import cgi 
+import cgi
 
 app = Flask(__name__)
 app.config['DEBUG'] = True      # displays runtime errors in the browser, too
@@ -73,7 +73,7 @@ def user_signup():
 
         if email.strip() == "":
             flash('You must enter a valid username.', 'error')
-            return redirect('/sigup')
+            return redirect('/signup')
 
         if not is_email(email):
             flash('Uh-oh! "' + email + '" does not look like an email address.', 'error')
@@ -86,7 +86,7 @@ def user_signup():
 
         if password.strip() == "" or len(password) < 3:
             flash('You must enter a valid password.', 'error')
-            return redirect('/sigup')
+            return redirect('/signup')
 
         if password != verify:
             flash('The passwords you entered do not match', 'error')
